@@ -11,8 +11,7 @@ To be valid, a password must:
 - Have at least one English lowercase letter (a-z)
 - Have at least one number (0-9)
 - Have at least one non-alphanumeric symbol ("!", "#", "$", "%", ".", "*", "&")
-
-Passwords must not be any previous password in the passwords array. 
+- Must not be any previous password in the passwords array. 
 
 We have supplied functions which will help you with some of these checks.
 
