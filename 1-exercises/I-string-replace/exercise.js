@@ -13,7 +13,11 @@
 let story =
   "I like dogs. One day I went to the park and I saw 10 dogs. It was a great day.";
 
-let result = story.replace("", "");
+let mydict = { dog: "cat", day: "night", 10: 100000, great: "brilliant" };
+
+let result = story.replace(/dog|day|10|great/gi, function (matching) {
+  return mydict[matching];
+});
 
 /* EXPECTED OUTPUT */
 

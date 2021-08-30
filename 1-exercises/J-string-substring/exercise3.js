@@ -8,7 +8,10 @@
 
 let statement = "I do not like programming";
 
-let result = "";
+let result = `${statement.substr(0, 4)} ${statement.substr(
+  9,
+  statement.length
+)}`;
 
 console.log(result);
 
