@@ -3,16 +3,24 @@ Write a function that:
 - Accepts an array as a parameter.
 - Returns a new array containing the first five elements of the passed array.
 */
-function first5() {
+function first5(arr) {
+  let newArr = arr.slice(0, 5);
+  return newArr;
 }
+
+console.log(first5([1, 2, 3, 4, 5, 6, 7]));
 
 /*
 Write a function that:
 - Accepts an array as a parameter.
 - Returns a new array containing the same elements, except sorted.
 */
-function sortArray() {
+function sortArray(arr) {
+  let newArr = arr.sort();
+  return newArr;
 }
+
+console.log(sortArray([5, 7, 2, 8, 2, "z", "a", "l"]));
 
 /*
 NOTE: This exercise is the same as one you did last week - try to do it again using things you learnt this week.
@@ -24,8 +32,16 @@ Write a function that:
 - Removes any forward slashes (/) in the strings.
 - Makes the strings all lowercase.
 */
-function tidyUpString() {
+function tidyUpString(arr) {
+  return arr.map((el) => el.toLowerCase().trim().replace(/\//g, ""));
 }
+
+let testArr = [
+  "     hel/Lo tHere/ ///hope all IS Well    ",
+  "    //ANOTHer strin//g   ",
+];
+
+console.log(tidyUpString(testArr));
 
 /*
 Write a function that:
@@ -33,8 +49,11 @@ Write a function that:
 - Returns a new array containing the same elements, but without the element at the passed index.
 */
 
-function remove() {
+function remove(arr, index) {
+  return arr.filter((value, arrIndex) => index !== arrIndex);
 }
+
+console.log(remove(testArr, 0));
 
 /*
 Write a function that:
@@ -44,8 +63,16 @@ Write a function that:
 - Numbers greater 100 must be replaced with 100.
 */
 
-function formatPercentage() {
+function formatPercentage(arr) {
+  return arr.map(function (num) {
+    if (num > 100) {
+      num = 100;
+    }
+    return `${num.toFixed(2)}%`;
+  });
 }
+
+console.log(formatPercentage([233, 100, 6, 78, 45.652432]));
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 

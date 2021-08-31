@@ -15,7 +15,35 @@
   
 */
 
-function getSettlers() {}
+function getSettlers(voyagers) {
+  inhabitants = [];
+  let possibleSettlers = voyagers.forEach((element) => {
+    splitElement = element.split(" ");
+    if (splitElement.length > 1 && element.charAt(0) == "A") {
+      inhabitants.push(element);
+    }
+  });
+  console.log(inhabitants);
+}
+
+const voyagers = [
+  "Adam family",
+  "Potter family",
+  "Eric",
+  "Aldous",
+  "Button family",
+  "Jude",
+  "Carmichael",
+  "Bunny",
+  "Asimov",
+  "Oscar family",
+  "Avery family",
+  "Archer family",
+  "Just A. family",
+  "A Great family",
+];
+
+console.log(getSettlers(voyagers));
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 

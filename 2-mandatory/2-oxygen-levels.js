@@ -11,7 +11,19 @@
     Some string methods that might help you here are .replace() and .substring(). 
 */
 
-function findSafeOxygenLevel() {}
+function oxygenLevel(oxyNum) {
+  if (oxyNum > 19.5 && oxyNum < 23.5) {
+    return oxyNum;
+  }
+}
+
+function findSafeOxygenLevel(arr) {
+  cleanArr = arr.map((myString) => myString.replace("%", "")).find(oxygenLevel);
+  return `${cleanArr}%`;
+}
+
+let testArr = ["24.2%", "11.3%", "19.9%", "23.1%", "29.3%", "20.2%"];
+console.log(findSafeOxygenLevel(testArr));
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 
