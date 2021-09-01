@@ -6,7 +6,24 @@
   HINT: string and array methods that could be helpful (indexOf, filter)
 */
 
-function getLanes() {}
+function getLanes(strtNames) {
+  let containsLane = strtNames.filter((name) =>
+    name.toLowerCase().includes("lane")
+  );
+  return containsLane;
+}
+
+let streetNamz = [
+  "Abchurch Lane",
+  "Adam's Court",
+  "Addle Hill",
+  "Addle Lane",
+  "Alban Highwalk",
+  "hello",
+  "test lane",
+];
+
+console.log(getLanes(streetNamz));
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 

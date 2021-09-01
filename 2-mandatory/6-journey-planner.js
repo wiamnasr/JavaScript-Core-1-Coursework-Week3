@@ -20,12 +20,19 @@
 function checkCodeIsThere(stringText) {
   let magicWord = "code";
   //edit code below
-  if (stringText) {
-    return stringText;
+
+  if (stringText.includes(magicWord)) {
+    return stringText.indexOf(magicWord);
   } else {
     return "Not found";
   }
 }
+
+let stringtest = "I Love coding and perfect code makes me happy";
+let stringtest2 = "I don't like to do coding";
+const stringtest3 = "Can you scan the barcode for me";
+
+console.log(checkCodeIsThere(stringtest3));
 
 /*
   I am new to London and would like to know what transport I can take to different famous locations.
@@ -64,7 +71,13 @@ function checkCodeIsThere(stringText) {
   
   Hint: Use the corresponding array method to split the array.
 */
-function getTransportModes() {}
+function getTransportModes(arr) {
+  arr.shift();
+
+  return arr;
+}
+
+console.log(getTransportModes(["Angel", "tube", "bus"]));
 
 /*
   Implement the function isAccessibleByTransportMode that
@@ -81,7 +94,12 @@ function getTransportModes() {}
     
   Hint: Use the corresponding array method to decide if an element is member of an array.
 */
-function isAccessibleByTransportMode() {}
+function isAccessibleByTransportMode(availableModes, mode) {
+  return availableModes.includes(mode);
+}
+
+console.log(isAccessibleByTransportMode(["tube", "bus", "river boat"], "boat"));
+console.log(isAccessibleByTransportMode(["tube", "bus"], "river boat"));
 
 /*
   Implement the function getLocationName that
@@ -92,7 +110,11 @@ function isAccessibleByTransportMode() {}
    - Returns the name of the location
       e.g: "Tower Bridge"
 */
-function getLocationName() {}
+function getLocationName(arr) {
+  return arr.shift();
+}
+
+console.log(getLocationName(["London Bridge", "tube", "river boat"]));
 
 /*
  We arrived at the final method. it won't take long if you use the previously implemented functions wisely.
@@ -123,7 +145,23 @@ function getLocationName() {}
 */
 function journeyPlanner(locations, transportMode) {
   // Implement the function body
+  let locationsarr = [];
+  let possibleLocation = locations.map((arr) => {
+    if (isAccessibleByTransportMode(arr, transportMode)) {
+      locationsarr.push(getLocationName(arr));
+    }
+  });
+  return locationsarr;
 }
+
+let testLocations = [
+  ["Angel", "tube", "bus"],
+  ["London Bridge", "tube", "river boat"],
+  ["Tower Bridge", "tube", "bus"],
+  ["Greenwich", "bus", "river boat"],
+];
+
+console.log(journeyPlanner(testLocations, "bus"));
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 

@@ -23,7 +23,29 @@ PasswordValidationResult=  [false, false, false, false, true]
 
 */
 
-function validatePasswords(passwords) {}
+function validatePasswords(passwords) {
+  let checked = [];
+  // let findDuplicates = passwords.filter(x => x===true).length;
+  let validating = passwords.forEach(function (passStrng) {
+    if (
+      containsUppercaseLetter(passStrng) &&
+      containsLowercaseLetter(passStrng) &&
+      containsNumber(passStrng) &&
+      containsSymbol(passStrng) &&
+      passStrng.length >= 5 &&
+      findDuplicates == 0
+    ) {
+      checked.push(true);
+    } else {
+      checked.push(false);
+    }
+  });
+  return checked;
+}
+
+console.log(
+  validatePasswords(["StUFf27%", "Pl3nty!", "Jai33", "shajsaUA**&&", "Pl3nty!"])
+);
 
 // Returns true if string contains at least one uppercase letter.
 function containsUppercaseLetter(string) {
@@ -44,6 +66,10 @@ function containsNumber(string) {
 function containsSymbol(string) {
   return /[!#$%.*&]/.test(string);
 }
+
+console.log(
+  validatePasswords(["Se%5", "TktE.TJTU", "384#HsHF", "dvyyeyy!5", "tryT3729"])
+);
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 
