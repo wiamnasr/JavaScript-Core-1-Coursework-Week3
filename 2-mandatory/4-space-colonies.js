@@ -26,6 +26,22 @@ function getSettlers(voyagers) {
   console.log(inhabitants);
 }
 
+
+
+
+// more conditions
+
+
+/*
+
+function getSettlers(arr) {
+return (arr.filter((item) =>
+ /^A[\s\w+]*family/.test(item)
+  
+ ))
+}
+*/
+
 const voyagers = [
   "Adam family",
   "Potter family",

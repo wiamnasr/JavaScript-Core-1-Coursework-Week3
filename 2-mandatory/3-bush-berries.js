@@ -34,8 +34,25 @@ function isBushSafe(berryArray) {
   }
 }
 
+
+// function check_berry_stng(berryColor){
+//   return berryColor == "pink";
+// }
+
+// function isSafe(arr_berries){
+//   let check_berries = arr_berries.every(check_berry_stng);
+//   if (isSafe){
+//   return "Bush is safe to eat from";
+//   } else {
+//     return "Toxic! Leave bush alone!";
+  
+//   }
+// }
+
+
+
 console.log(
-  isBushSafe(["pink", "pink", "pink", "neon", "pink", "transparent"])
+  isBushSafe(["pink", "pink", "pink", "neon", "pink", "transparent"]);
 );
 
 console.log(isBushSafe(["pink", "pink", "pink", "pink"]));

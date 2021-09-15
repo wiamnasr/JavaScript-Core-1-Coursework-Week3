@@ -3,7 +3,9 @@ function validate_cardNumber(cardNum) {
   let unique_nums = new Set(cardNum);
 
   // Sum of cardNum digits must be greater than 16, using reduce method:
-  // Split into array to be able to use reduce to get sum
+  // turn to string, then Split into array to be able to use reduce to get sum
+  // map is used to turn them back into numbers inside of array
+  // lastly .reduce() is used to iterate through numbers in array and add them together
   let sum_num = cardNum
     .toString()
     .split("")
@@ -26,43 +28,45 @@ function validate_cardNumber(cardNum) {
   }
 }
 
-// Failing Tests
-let test1 = "a92332119c011112"; //(invalid characters)
-let test2 = "4444444444444444"; //(only one type of number)
-let test3 = "1111111111111110"; //(sum less than 16)
-let test4 = "6666666666666661"; //(odd final number)
+/////////////////////////////////////// TESTS //////////////////////////////////////
 
-// Working Tests
+// // Failing Tests
+// let test1 = "a92332119c011112"; //(invalid characters)
+// let test2 = "4444444444444444"; //(only one type of number)
+// let test3 = "1111111111111110"; //(sum less than 16)
+// let test4 = "6666666666666661"; //(odd final number)
 
-let test5 = "6666666666661666";
-let test6 = "9999777788880000";
+// // Working Tests
 
-console.log(validate_cardNumber(test6));
+// let test5 = "6666666666661666";
+// let test6 = "9999777788880000";
 
-/*
-REQUIREMENTS:
+// console.log(validate_cardNumber(test6));
 
-=> test for:
+// /*
+// REQUIREMENTS:
 
-    <Y> cardNum is all numbers
-    <Y> cardNum.length === 16
-    <Y> at least 2 digits represents out of [0,1,2,3,4,5,6,7,8,9] => use Set()??
-    <Y> cardNum[-1]%2 === 0
-    <Y> cardNum.reduce((a, b) => a + b, 0) //must be greater than 16
+// => test for:
 
-*/
-let sum_num = test6
-  .toString()
-  .split("")
-  .map(Number)
-  .reduce(function (a, b) {
-    return a + b;
-  }, 0);
+//     <Y> cardNum is all numbers
+//     <Y> cardNum.length === 16
+//     <Y> at least 2 digits represents out of [0,1,2,3,4,5,6,7,8,9] => use Set()??
+//     <Y> cardNum[-1]%2 === 0
+//     <Y> cardNum.reduce((a, b) => a + b, 0) //must be greater than 16
 
-console.log(sum_num > 16);
+// */
+// let sum_num = test6
+//   .toString()
+//   .split("")
+//   .map(Number)
+//   .reduce(function (a, b) {
+//     return a + b;
+//   }, 0);
 
-let unique_nums = new Set(test6);
+// console.log(sum_num > 16);
 
-console.log(unique_nums.size);
+// let unique_nums = new Set(test6);
 
-console.log(test6[test6.length - 1] % 2);
+// console.log(unique_nums.size);
+
+// console.log(test6[test6.length - 1] % 2);

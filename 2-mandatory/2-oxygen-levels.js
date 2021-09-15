@@ -25,6 +25,20 @@ function findSafeOxygenLevel(arr) {
 let testArr = ["24.2%", "11.3%", "19.9%", "23.1%", "29.3%", "20.2%"];
 console.log(findSafeOxygenLevel(testArr));
 
+/*
+function findSafeOxygenLevel(arr) {
+  let safe = arr.find((item) =>{
+    if(item.includes("%")){
+    let item1 = item.substring(0, item.length - 1);
+    item1 = parseFloat(item);
+    return (item1<23.5 && item1 > 19.5)}
+    
+  })
+  return safe;
+}
+*/
+
+
 /* ======= TESTS - DO NOT MODIFY ===== */
 
 test("findSafeOxygenLevel function works - case 1", () => {
