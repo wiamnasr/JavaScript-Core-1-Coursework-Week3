@@ -23,30 +23,6 @@ PasswordValidationResult=  [false, false, false, false, true]
 
 */
 
-function validatePasswords(passwords) {
-  let checked = [];
-  // let findDuplicates = passwords.filter(x => x===true).length;
-  let validating = passwords.forEach(function (passStrng) {
-    if (
-      containsUppercaseLetter(passStrng) &&
-      containsLowercaseLetter(passStrng) &&
-      containsNumber(passStrng) &&
-      containsSymbol(passStrng) &&
-      passStrng.length >= 5 &&
-      findDuplicates == 0
-    ) {
-      checked.push(true);
-    } else {
-      checked.push(false);
-    }
-  });
-  return checked;
-}
-
-console.log(
-  validatePasswords(["StUFf27%", "Pl3nty!", "Jai33", "shajsaUA**&&", "Pl3nty!"])
-);
-
 // Returns true if string contains at least one uppercase letter.
 function containsUppercaseLetter(string) {
   return /[A-Z]/.test(string);
@@ -66,6 +42,27 @@ function containsNumber(string) {
 function containsSymbol(string) {
   return /[!#$%.*&]/.test(string);
 }
+
+function validatePasswords(passwords) {
+  final_result = [];
+  for (var i = 1; i <= passwords.length; i++) {
+    let sliced_test = passwords.slice(0, i);
+    let filter = sliced_test.filter(function(pass){
+      
+    })
+    if (filter.length>1) {
+      final_result.push(false);
+    } else {
+      final_result.push(true);
+    }
+  }
+
+  return final_result;
+}
+
+console.log(
+  validatePasswords(["StUFf27%", "Pl3nty!", "Jai33", "shajsaUA**&&", "Pl3nty!"])
+);
 
 console.log(
   validatePasswords(["Se%5", "TktE.TJTU", "384#HsHF", "dvyyeyy!5", "tryT3729"])
@@ -96,3 +93,29 @@ test("Example 2", () => {
     ])
   ).toEqual([true, true, false, false, false]);
 });
+
+// function containsUppercaseLetter(strng) {
+//   return strng.some((char) => char == char.toUpperCase());
+// }
+
+// function containsLowercaseLetter(strng) {
+//   return strng.some((char) => char == char.toLowerCase());
+// }
+
+// function containsUppercaseLetter(strng) {
+//   return strng.some((char) => !isNaN(char));
+// }
+
+// function containsUppercaseLetter(strng) {
+//   return strng.some(
+//     (char) =>
+//       (char == "!") |
+//       (char == "#") |
+//       (char == "$") |
+//       (char == ".") |
+//       (char == "*") |
+//       (char == "&")
+//   );
+// }
+
+// function findDuplicates() {}
