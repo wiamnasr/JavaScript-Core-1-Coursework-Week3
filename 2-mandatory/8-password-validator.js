@@ -43,30 +43,52 @@ function containsSymbol(string) {
   return /[!#$%.*&]/.test(string);
 }
 
-function validatePasswords(passwords) {
-  final_result = [];
-  for (var i = 1; i <= passwords.length; i++) {
-    let sliced_test = passwords.slice(0, i);
-    let filter = sliced_test.filter(function(pass){
-      
-    })
-    if (filter.length>1) {
-      final_result.push(false);
-    } else {
-      final_result.push(true);
-    }
-  }
-
-  return final_result;
+function isLongEnough(string) {
+  return string.length >= 5;
 }
 
-console.log(
-  validatePasswords(["StUFf27%", "Pl3nty!", "Jai33", "shajsaUA**&&", "Pl3nty!"])
-);
+function validatePasswords(passwords) {
+  final_result = [];
+  let checking_pass = passwords.map((str) => {
+    return (
+      containsSymbol(str) &&
+      containsNumber(str) &&
+      isLongEnough(str) &&
+      containsLowercaseLetter(str) &&
+      containsUppercaseLetter(str)
+    );
+  });
+  // console.log(checking_pass);
 
-console.log(
-  validatePasswords(["Se%5", "TktE.TJTU", "384#HsHF", "dvyyeyy!5", "tryT3729"])
-);
+  let findDuplicates = function (arr) {
+    return arr.filter((item, index) => arr.indexOf(item) != index);
+  };
+
+  let searchValue = findDuplicates(passwords);
+  // console.log(searchValue);
+
+  let dup_position = [];
+
+  for (var i = 0; i < searchValue.length; i++) {
+    dup_position.push(passwords.lastIndexOf(searchValue[i]));
+  }
+
+  // console.log(dup_position);
+
+  if (dup_position.length > 0) {
+    for (var pos = 0; pos < dup_position.length; pos++) {
+      // console.log(dup_position[pos]);
+      checking_pass[dup_position[pos]] = false;
+    }
+    // console.log(checking_pass);
+  }
+
+  return checking_pass;
+}
+
+let testArr = ["Se%5", "TktE.TJTU", "384#HsHF", "dvyyeyy!5", "tryT3729"];
+
+console.log(validatePasswords(testArr));
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 
@@ -93,29 +115,3 @@ test("Example 2", () => {
     ])
   ).toEqual([true, true, false, false, false]);
 });
-
-// function containsUppercaseLetter(strng) {
-//   return strng.some((char) => char == char.toUpperCase());
-// }
-
-// function containsLowercaseLetter(strng) {
-//   return strng.some((char) => char == char.toLowerCase());
-// }
-
-// function containsUppercaseLetter(strng) {
-//   return strng.some((char) => !isNaN(char));
-// }
-
-// function containsUppercaseLetter(strng) {
-//   return strng.some(
-//     (char) =>
-//       (char == "!") |
-//       (char == "#") |
-//       (char == "$") |
-//       (char == ".") |
-//       (char == "*") |
-//       (char == "&")
-//   );
-// }
-
-// function findDuplicates() {}
