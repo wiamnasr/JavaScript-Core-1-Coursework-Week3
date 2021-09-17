@@ -72,7 +72,7 @@ console.log(checkCodeIsThere(stringtest3));
   Hint: Use the corresponding array method to split the array.
 */
 function getTransportModes(arr) {
-  arr.shift();
+  arr.slice(1);
 
   return arr;
 }
@@ -111,7 +111,7 @@ console.log(isAccessibleByTransportMode(["tube", "bus"], "river boat"));
       e.g: "Tower Bridge"
 */
 function getLocationName(arr) {
-  return arr.shift();
+  return arr[0];
 }
 
 console.log(getLocationName(["London Bridge", "tube", "river boat"]));
