@@ -28,11 +28,7 @@ function checkCodeIsThere(stringText) {
   }
 }
 
-let stringtest = "I Love coding and perfect code makes me happy";
-let stringtest2 = "I don't like to do coding";
-const stringtest3 = "Can you scan the barcode for me";
 
-console.log(checkCodeIsThere(stringtest3));
 
 /*
   I am new to London and would like to know what transport I can take to different famous locations.
@@ -77,7 +73,7 @@ function getTransportModes(arr) {
   return arr;
 }
 
-console.log(getTransportModes(["Angel", "tube", "bus"]));
+
 
 /*
   Implement the function isAccessibleByTransportMode that
@@ -98,8 +94,7 @@ function isAccessibleByTransportMode(availableModes, mode) {
   return availableModes.includes(mode);
 }
 
-console.log(isAccessibleByTransportMode(["tube", "bus", "river boat"], "boat"));
-console.log(isAccessibleByTransportMode(["tube", "bus"], "river boat"));
+
 
 /*
   Implement the function getLocationName that
@@ -114,7 +109,7 @@ function getLocationName(arr) {
   return arr[0];
 }
 
-console.log(getLocationName(["London Bridge", "tube", "river boat"]));
+
 
 /*
  We arrived at the final method. it won't take long if you use the previously implemented functions wisely.
@@ -154,14 +149,6 @@ function journeyPlanner(locations, transportMode) {
   return locationsarr;
 }
 
-let testLocations = [
-  ["Angel", "tube", "bus"],
-  ["London Bridge", "tube", "river boat"],
-  ["Tower Bridge", "tube", "bus"],
-  ["Greenwich", "bus", "river boat"],
-];
-
-console.log(journeyPlanner(testLocations, "bus"));
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 
