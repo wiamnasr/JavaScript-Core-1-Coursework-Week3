@@ -13,18 +13,6 @@ function getLanes(strtNames) {
   return containsLane;
 }
 
-let streetNamz = [
-  "Abchurch Lane",
-  "Adam's Court",
-  "Addle Hill",
-  "Addle Lane",
-  "Alban Highwalk",
-  "hello",
-  "test lane",
-];
-
-console.log(getLanes(streetNamz));
-
 /* ======= TESTS - DO NOT MODIFY ===== */
 
 test("getLanes function works", () => {
