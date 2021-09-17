@@ -68,12 +68,12 @@ function checkCodeIsThere(stringText) {
   Hint: Use the corresponding array method to split the array.
 */
 function getTransportModes(arr) {
-  arr.slice(1);
+  arr.shift();
 
   return arr;
 }
 
-
+// console.log(getTransportModes(["Angel", "tube", "bus"]));
 
 /*
   Implement the function isAccessibleByTransportMode that
@@ -148,6 +148,8 @@ function journeyPlanner(locations, transportMode) {
   });
   return locationsarr;
 }
+
+
 
 
 /* ======= TESTS - DO NOT MODIFY ===== */
